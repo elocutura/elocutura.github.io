@@ -1,9 +1,19 @@
 <html>
 <head>
    <meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+	<script>
+	const queryString = window.location.search;
+	const urlParams = new URLSearchParams(queryString);
+	
+	var playerid = urlParams.get('playerid');
+	function OnButtonClick()
+	{
+		window.open('kanedatestgame://friendRequest?'+playerid, target="_self");
+	}
+	</script>
 </head>
 <body >
    <h1>My Deep Link Test page</h1>
-   <p><a href="kanedaTestGame://friendRequest?ebd60ed5-8488-4f61-bfee-9d628ebdfe37">Launch</a></p>
+	<input type="button" onclick=OnButtonClick() value="Go to Google" />
 </body>
 </html>
