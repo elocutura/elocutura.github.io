@@ -1,25 +1,40 @@
 <html>
 <head>
-   <meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+	<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
 	<script>
-	const queryString = window.location.search;
-	const urlParams = new URLSearchParams(queryString);
+	 var l_IsMobile = /Android|webOS|iPhone|iPad|iPod/i.test(ua);
+	 var l_IsIOs = /iPhone|iPad|iPod/i.test(ua);
 	
-	var playerid = urlParams.get('playerid');
-	function OnButtonClick()
+	if(l_IsMobile)
 	{
-		window.open('kanedasmootssummergamesmobile://friendRequest?'+playerid, target="_self");
+		try
+			window.open('smootssummergamesmobile://invite?'+playerid, target="_self");
+		catch(err)
+		{
+			if(!l_IsIOs)
+			{
+				// IOs store link
+			}
+			else
+			{
+				window.open("https://play.google.com/store/apps/details?id=com.kanedagames.smootssummergamesfirebase");
+			}
+		}
 	}
-	
-	window.open('kanedatestgame://friendRequest?'+playerid, target="_self");
+
 	</script>
-	
-	<link type="text/css" rel="stylesheet" href="css/main.css" />
+	<style>
+	div.container
+	{
+		vertical-align: middle;
+		text-align: center;
+		margin-top: 20%;
+	}
+	</style>
 </head>
 <body >
 <div class="container">
-   <h1>Click the button to add friend ingame</h1>
-	<input type="button" onclick=OnButtonClick() value="Open App" />
+   <h1>You do not appear to be using a mobile device</h1>
 </div>
 </body>
 </html>
